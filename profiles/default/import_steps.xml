@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<import-steps>
+ <import-step id="bayes" version="20060302-01"
+              handler="Products.CPSBayes.exportimport.importCPSBayes"
+              title="CPSBayes">
+  <dependency step="toolset"/>
+  Import CPSBayes.
+ </import-step>
+</import-steps>

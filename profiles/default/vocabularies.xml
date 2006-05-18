@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<object name="portal_vocabularies">
+ <object name="cpsbayes_categories" meta_type="CPS Bayes Vocabulary"/>
+</object>

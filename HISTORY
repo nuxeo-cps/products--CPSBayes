@@ -1,0 +1,18 @@
+*******************************************
+** CPSBayes V0.1.0 [R1 build 2006/04/10-16:13 by gracinet]
+** SVN URL: http://svn/priv/DGME/CPSBayes/trunk Revision: 32576
+Requires:
+~~~~~~~~~
+-
+New features:
+~~~~~~~~~~~~~
+- guess() now returns categories with probs
+- the number of entries returned by guess is a now a tool property
+
+Bug fixes:
+~~~~~~~~~~
+-
+New internal features:
+~~~~~~~~~~~~~~~~~~~~~~
+-
+

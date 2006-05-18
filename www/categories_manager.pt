@@ -1,0 +1,82 @@
+<h1 tal:replace="structure here/manage_page_header">Header</h1>
+<tal:block tal:replace="structure here/manage_tabs">Header</tal:block>
+
+<form action="manage_deleteCategories">
+<table>
+<tbody><tr class="list-header">
+  <td align="left" valign="top" width="16">
+  &nbsp;
+  </td>
+  <td align="left" valign="top">
+  <div class="form-label">
+  Name
+  </div>
+  </td>
+  <td align="left" valign="top">
+
+  <div class="form-label">
+  Label
+  </div>
+  </td>
+  <td align="left" valign="top">
+  <div class="form-label">
+  Description
+  </div>
+  </td>
+</tr>
+
+<tr tal:repeat="category context/getCategoryList">
+  <td align="left" valign="top" width="16">
+    <input name="categories:list"
+           tal:attributes="value category/name"
+           type="checkbox"/>
+  </td>
+  <td align="left" valign="top" tal:content="category/name"/>
+  <td align="left" valign="top" tal:content="category/label"/>
+  <td align="left" valign="top" tal:content="category/description"/>
+</tr>
+</tbody>
+</table>
+<input class="form-element" value="Delete selected" type="submit">
+</form>
+
+<p class="form-help">
+You can add a new category with the form below:
+</p>
+<form action="manage_addCategory">
+ <table>
+ <tr>
+  <td align="left">
+    <div class="form-label">
+    Name:
+    </div>
+  </td>
+  <td align="left">
+    <input type="text" size="30" name="category"/>
+  </td>
+ </tr>
+ <tr>
+  <td align="left">
+    <div class="form-label">
+    Label (optional)
+    </div>
+  </td>
+  <td align="left">
+    <input type="label" size="30" name="label"/>
+  </td>
+ </tr>
+ <tr>
+  <td align="left">
+    <div class="form-label">
+    Description (optional)
+    </div>
+  </td>
+  <td align="left">
+    <input type="description" size="30" name="description"/>
+  </td>
+ </tr>
+ </table>
+ <input type="submit" class="form-element" value="Add Category"/>
+</form>
+
+<h1 tal:replace="structure here/manage_page_footer">Footer</h1>

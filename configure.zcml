@@ -1,0 +1,21 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:five="http://namespaces.zope.org/five">
+
+  <adapter
+      factory=".exportimport.CPSBayesXMLAdapter"
+      provides="Products.GenericSetup.interfaces.IBody"
+      for=".interfaces.ICPSBayes
+           Products.GenericSetup.interfaces.ISetupEnviron"
+      />
+
+  <five:registerClass
+      class=".bayesvocabulary.CPSBayesVocabulary"
+      meta_type="CPS Bayes Vocabulary"
+      addview="addBayesVocabulary.html"
+      permission="cmf.ManagePortal"
+      global="False"
+      />
+
+</configure>
