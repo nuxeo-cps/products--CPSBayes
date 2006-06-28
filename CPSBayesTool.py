@@ -16,6 +16,8 @@
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 # 02111-1307, USA.
 # $Id$
+import thread
+
 from OFS.Folder import Folder
 from AccessControl import ClassSecurityInfo
 from Globals import InitializeClass
@@ -32,6 +34,18 @@ from Products.BayesCore.tokenizer.filters import AllFilters
 from Products.BayesCore.classifier.classifier import BayesClassifier
 
 from interfaces import ICPSBayes
+
+learn_lock = thread.allocate_lock()
+
+def learn_locker(func):
+    def wrap(*args, **kw):
+        learn_.acquire()
+        try:
+            return func(*args, **kw)
+        finally:
+            learn_.release()
+    return wrap
+
 
 class CPSBayesTool(UniqueObject, Folder):
     """ CPSBayesTool presents BayesCore apis to a CPS portal
@@ -158,6 +172,7 @@ class CPSBayesTool(UniqueObject, Folder):
 
     # XXX will change permission later
     security.declareProtected(ManagePortal, 'addCategory')
+    @learn_locker
     def addCategory(self, name, label='', description=''):
         """ add a category """
         name = name.replace(' ', '_').lower()
@@ -166,6 +181,7 @@ class CPSBayesTool(UniqueObject, Folder):
 
     # XXX will change permission later
     security.declareProtected(ManagePortal, 'delCategory')
+    @learn_locker
     def delCategory(self, name):
         """ remove a category """
         backend = self._getBackend()
@@ -179,6 +195,7 @@ class CPSBayesTool(UniqueObject, Folder):
 
     # XXX will change permission later
     security.declareProtected(ManagePortal, 'learn')
+    @learn_locker
     def learn(self, data, category, language='fr'):
         """ learn
 
@@ -191,6 +208,7 @@ class CPSBayesTool(UniqueObject, Folder):
 
     # XXX will change permission later
     security.declareProtected(ManagePortal, 'learn')
+    @learn_locker
     def unlearn(self, data, category, language='fr'):
         """ unlearn
 
