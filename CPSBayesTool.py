@@ -68,7 +68,7 @@ class CPSBayesTool(UniqueObject, Folder):
     manage_options = (
             Folder.manage_options[:1] + (
             {'label': 'Backend managment', 'action':'manage_backend'},
-            #{'label': 'Categories managment', 'action':'manage_categories'}) +
+            {'label': 'Categories managment', 'action':'manage_categories'}) +
             Folder.manage_options[1:])
 
     #
