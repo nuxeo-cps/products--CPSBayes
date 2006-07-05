@@ -97,16 +97,34 @@ class TestCPSBayesTool(CPSBayesTestCase):
         self.assertEquals([cat for cat, prob in res],
                           ['english'])
 
-        bayes_tool.unlearn('le la les du un une je il elle de en', 'french')
+        del_words = 'le la les du un une je il elle de en'
+        bayes_tool.unlearn(del_words, 'french')
         got = list(bayes_tool.getCategoryList())
         got = [element.items() for element in got]
         got.sort()
 
+        # XXX GR: according to warning in BayesCore.storage.zodb, method
+        # delWordFromLanguage, it's normal behavior that the french category
+        # hasn't been purged. But it should be empty
         wanted = [[('description', ''), ('name', 'english'), ('label', 'english')],
+                  [('description', ''), ('name', 'french'), ('label', 'french')],
                   [('description', ''), ('name', 'german'), ('label', 'german')],
                   [('description', ''), ('name', 'spanish'), ('label', 'spanish')]]
 
         self.assertEquals(got, wanted)
+
+        # checking that words got deleted
+        # GR: language is another concept than category ('fr' by default)
+        all_words = set(bayes_tool._getBackend().listWords(language='fr'))
+        self.assertEquals(set(del_words.split()) & all_words, set(('de', 'en')))
+
+        # checking that remaining words are associated to the spanish category
+        res = bayes_tool.guess('en')
+        self.assertEquals([cat for cat, prob in res],
+                          ['spanish'])
+        res = bayes_tool.guess('de')
+        self.assertEquals([cat for cat, prob in res],
+                          ['spanish'])
 
     def test_languages(self):
         # make sure we can work in several languages
