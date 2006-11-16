@@ -1,3 +1,23 @@
+===========================================================
+Package: CPSBayes 0.1.4
+===========================================================
+First release built by: gracinet at: 2006-11-16T18:23:09
+SVN Tag: https://svn.nuxeo.org/pub/CPS3/products/CPSBayes/tags/0.1.4
+Build from: https://svn.nuxeo.org/pub/CPS3/products/CPSBayes/trunk@50009
+
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+- [packaging] bundleman svn property
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
 *******************************************
 ** CPSBayes V0.1.3 [R1 build 2006/07/31-11:19 by fermigier]
 ** SVN URL: https://svn.nuxeo.org/pub/CPS3/products/CPSBayes/trunk Revision: 47588
