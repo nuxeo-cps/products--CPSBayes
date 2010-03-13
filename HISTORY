@@ -1,4 +1,21 @@
 ===========================================================
+Package: CPSBayes 0.1.5
+===========================================================
+First release built by: gracinet at: 2010-03-13T17:39:17
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+-
+Bug fixes
+~~~~~~~~~
+- First hgbundler managed release
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
 Package: CPSBayes 0.1.4
 ===========================================================
 First release built by: gracinet at: 2006-11-16T18:23:09
