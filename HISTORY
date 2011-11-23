@@ -1,4 +1,21 @@
 ===========================================================
+Package: CPSBayes 0.2.0-CPS-3.5
+===========================================================
+First release built by: gracinet at: 2011-11-23T19:59:14
+Requires
+~~~~~~~~
+-
+New features
+~~~~~~~~~~~~
+- Creation of the stable CPS-3.5 branch
+Bug fixes
+~~~~~~~~~
+-
+New internal features
+~~~~~~~~~~~~~~~~~~~~~
+- 
+
+===========================================================
 Package: CPSBayes 0.1.5
 ===========================================================
 First release built by: gracinet at: 2010-03-13T17:39:17
